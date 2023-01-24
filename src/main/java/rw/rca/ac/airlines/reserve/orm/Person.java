@@ -45,5 +45,16 @@ public class Person {
         this.dob = dob;
     }
 
+<<<<<<< HEAD
     
 }
+=======
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+}
+>>>>>>> 6a07fef93009c11d5655ca2b35e74cfbc60d9a57

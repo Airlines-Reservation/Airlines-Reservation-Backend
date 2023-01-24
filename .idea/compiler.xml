@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Airlines-Reservation-Backend" target="19" />
+      <module name="Airlines-Reservation-Backend" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>

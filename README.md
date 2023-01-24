@@ -13,6 +13,16 @@ Flight
     └── passengers
     └── isCanceled
     └── limit
+    └── price
+Category
+    └── id
+    └── name
+    └── price
+    └── services
+Seat
+    └── id
+    └── code
+    └── category
 Ticket
     └── id
     └── code
@@ -20,6 +30,7 @@ Ticket
     └── flightId
     └── issueDate
     └── expirationDate
+    └── seat
 Passport
     └── id
     └── isValid
@@ -35,8 +46,9 @@ Person
     └── dob
     └── nationality
 Pilot [extends Person]
-    └── id
     └── pilotCode
+Passenger [extends Person]
+    └── passportId
 
 ```
 

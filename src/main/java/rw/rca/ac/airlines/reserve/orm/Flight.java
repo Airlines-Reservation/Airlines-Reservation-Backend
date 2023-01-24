@@ -1,36 +1,74 @@
 package rw.rca.ac.airlines.reserve.orm;
 
-public class Flight {
+import java.util.Date;
+import java.util.List;
+
+public class Flight
+{
     private int id;
-    private String flightName;
-    private int flightCode;
-
-    public Flight(String flightName, int flightCode) {
-        this.flightName = flightName;
-        this.flightCode = flightCode;
+    private int code;
+    private String departureCode;
+    private String destination;
+    private Date departureTime;
+    private Pilot pilot;
+    private String passenger;
+    private boolean isCancelled(){
+        return true;
+    }
+    private int limit;
+    public int getCode() {
+        return code;
     }
 
-    public int getId() {
-        return id;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getDepartureCode() {
+        return departureCode;
     }
 
-    public String getFlightName() {
-        return flightName;
+    public void setDepartureCode(String departureCode) {
+        this.departureCode = departureCode;
     }
 
-    public void setFlightName(String flightName) {
-        this.flightName = flightName;
+    public String getDestination() {
+        return destination;
     }
 
-    public int getFlightCode() {
-        return flightCode;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
-    public void setFlightCode(int flightCode) {
-        this.flightCode = flightCode;
+    public Date getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public Pilot getPilot() {
+        return pilot;
+    }
+
+    public void setPilot(Pilot p) {
+        this.pilot = p;
+    }
+
+    public String getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(String passenger) {
+        this.passenger = passenger;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 }

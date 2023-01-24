@@ -1,39 +1,62 @@
 package rw.rca.ac.airlines.reserve.orm;
 
-public class Ticket {
+import java.util.Date;
+
+public class Ticket
+{
     private int id;
-    private String ticketName;
+    private int code;
+    private String owner;
 
-    public String getTicketName() {
-        return ticketName;
+    public int getId() {
+        return id;
     }
 
-    public void setTicketName(String ticketName) {
-        this.ticketName = ticketName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTicketHolder() {
-        return ticketHolder;
+    public int getCode() {
+        return code;
     }
 
-    public void setTicketHolder(String ticketHolder) {
-        this.ticketHolder = ticketHolder;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public int getTicketCode() {
-        return ticketCode;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setTicketCode(int ticketCode) {
-        this.ticketCode = ticketCode;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public Ticket(String ticketName, String ticketHolder, int ticketCode) {
-        this.ticketName = ticketName;
-        this.ticketHolder = ticketHolder;
-        this.ticketCode = ticketCode;
+    public int getFlightId() {
+        return flightId;
     }
 
-    private String ticketHolder;
-    private int ticketCode;
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
+    }
+
+    public Date getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(Date issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    private int flightId;
+    private Date issueDate;
+    private Date expirationDate;
 }

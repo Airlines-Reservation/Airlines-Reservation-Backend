@@ -17,12 +17,6 @@ public class User {
         return email;
     }
 
-    public User(String name, String email, int telephone) {
-        this.name = name;
-        this.email = email;
-        this.telephone = telephone;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }

@@ -1,20 +1,22 @@
 package rw.rca.ac.airlines.reserve.orm;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name = "passenger")
 public class Passenger extends Person{
-    private int passportId;
-
-    public int getPassportId() {
-        return passportId;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,targetEntity = Passport.class)
+    @JoinTable(name="passport_passenger",joinColumns = { @JoinColumn(name = "passport_id")},inverseJoinColumns ={@JoinColumn(name = "passenger_id")} )
+    private List<Passport> passportIds;
+    public List<Passport> getPassportIds() {
+        return passportIds;
     }
-
-    public void setPassportId(int passportId) {
-        this.passportId = passportId;
+    public void setPassportIds(List<Passport> passportIds) {
+        this.passportIds = passportIds;
     }
-
     public Passenger(String firstName, String lastName, String nationality, Date dob, int passportId) {
         super(firstName, lastName, nationality, dob);
-        this.passportId = passportId;
     }
 }

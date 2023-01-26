@@ -1,13 +1,19 @@
 package rw.rca.ac.airlines.reserve.orm;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Person {
+@MappedSuperclass
+public abstract class Person implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     private String firstName;
     private String lastName;
     private String nationality;
     private Date dob;
+
     public int getId() {
         return id;
     }
@@ -44,17 +50,6 @@ public class Person {
     public void setDob(Date dob) {
         this.dob = dob;
     }
-
-<<<<<<< HEAD
-    
 }
-=======
-    public String getNationality() {
-        return nationality;
-    }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-}
->>>>>>> 6a07fef93009c11d5655ca2b35e74cfbc60d9a57
+

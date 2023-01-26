@@ -1,9 +1,20 @@
 package rw.rca.ac.airlines.reserve.orm;
 
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
+@Table(name = "passport")
 public class Passport {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private int id;
+    @OneToOne
+    @JoinColumn(name = "passenger_id")
+    private Passenger owner;
+    private ArrayList<String> accessCountries;
+    private String nationality;
     private boolean isValid;
     private Date expirationDate;
     private Date issueDate;
@@ -13,12 +24,12 @@ public class Passport {
     public void setId(int id) {
         this.id = id;
     }
-    public Passport(boolean isValid, Date expirationDate, Date issueDate, Passenger owner,
+    public Passport(boolean isValid, Date expirationDate, Date issueDate,
             ArrayList<String> accessCountries, String nationality) {
         this.isValid = isValid;
         this.expirationDate = expirationDate;
         this.issueDate = issueDate;
-        this.owner = owner;
+//        this.owner = owner;
         this.accessCountries = accessCountries;
         this.nationality = nationality;
     }
@@ -58,9 +69,6 @@ public class Passport {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-    private Passenger owner;
-    private ArrayList<String> accessCountries;
-    private String nationality;
 
     
 }

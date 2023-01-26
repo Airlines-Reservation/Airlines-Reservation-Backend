@@ -1,25 +1,43 @@
 package rw.rca.ac.airlines.reserve.orm;
-
+import javax.persistence.*;
 import java.util.*;
-
+@Entity
+@Table(name = "ticket")
 public class Ticket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private int id;
     private int code;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passenger_id")
     private Passenger owner;
-    private int flightId;
+
+    public Flight getFlightId() {
+        return flightId;
+    }
+
+    public void setFlightId(Flight flightId) {
+        this.flightId = flightId;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "flight_id")
+    private Flight flightId;
+
     private Date issueDate;
     private Date expirationDate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "seat_id")
     private Seat seat;
     public int getId() {
         return id;
     }
-    public Ticket(int code, Passenger owner, int flightId, Date issueDate, Date expirationDate, Seat seat) {
+    public Ticket(int code, Date issueDate, Date expirationDate) {
         this.code = code;
-        this.owner = owner;
-        this.flightId = flightId;
         this.issueDate = issueDate;
         this.expirationDate = expirationDate;
-        this.seat = seat;
     }
     public void setId(int id) {
         this.id = id;
@@ -35,12 +53,6 @@ public class Ticket {
     }
     public void setOwner(Passenger owner) {
         this.owner = owner;
-    }
-    public int getFlightId() {
-        return flightId;
-    }
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
     }
     public Date getIssueDate() {
         return issueDate;

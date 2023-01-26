@@ -1,18 +1,35 @@
 package rw.rca.ac.airlines.reserve.orm;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "seat")
 public class Seat {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private int id;
     private int code;
+
+    @ManyToOne
+    @JoinColumn(name = "seat_id")
     private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public Seat(int code, Category category) {
+    public Seat(int code) {
         this.code = code;
-        this.category = category;
     }
     public int getCode() {
         return code;
@@ -20,12 +37,5 @@ public class Seat {
     public void setCode(int code) {
         this.code = code;
     }
-    public Category getCategory() {
-        return category;
-    }
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     
 }

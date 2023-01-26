@@ -9,9 +9,14 @@ public class Ticket {
     @Column(name = "id",nullable = false)
     private int id;
     private int code;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "passenger_id")
     private Passenger owner;
+
+                                                                                                                                                                    @OneToOne(cascade = CascadeType.ALL)
+                                                                                                                                                                    @JoinColumn(name = "flight_id")
+                                                                                                                                                                    private Flight flightId;
 
     public Flight getFlightId() {
         return flightId;
@@ -20,10 +25,6 @@ public class Ticket {
     public void setFlightId(Flight flightId) {
         this.flightId = flightId;
     }
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "flight_id")
-    private Flight flightId;
 
     private Date issueDate;
     private Date expirationDate;

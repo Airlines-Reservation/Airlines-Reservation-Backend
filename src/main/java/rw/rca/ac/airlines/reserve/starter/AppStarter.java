@@ -22,7 +22,13 @@ public class AppStarter {
         Category category = new Category("Business Class",8023.30,"Premium customer care");
         Passenger passenger = new Passenger("Manzi","Cedrick","Rwandan",new Date(12,02,2000),1);
         Ticket ticket = new Ticket(123123,new Date(12,8,2000),new Date(12,3,2021));
-
+        passport.setOwner(passenger);
+        flight.setPilot(pilot);
+//        flight.setPassengers(List<Passenger>);
+//        seat.setCategory(Category);
+//        passenger.setPassportIds(Passport);
+//        ticket.setFlightId(Flight);
+//        ticket.setSeat(Seat);
 
         System.out.println("Loading the configurations");
 

@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private int id;
+    //    @Column(name = "id", nullable = false)
     private int code;
 
     @ManyToOne

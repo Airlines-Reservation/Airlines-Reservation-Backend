@@ -6,15 +6,15 @@
 <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
 
 <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/airlinesReserve</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/airlinesreserve</property>
 <property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password"></property>
+<property name="hibernate.connection.password">kabanda2005</property>
 
 <property name="hibernate.session_factory_name">SmisSessionFactory</property>
 <property name="hibernate.connection.pool_size">1</property>
 <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-<property name="hibernate.default_schema">airline</property>
+<property name="hibernate.default_schema">airlinesreserve</property>
 <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 
 <property name="current_session_context_class">thread</property>
@@ -32,13 +32,13 @@
 <property name="hibernate.c3p0.timeout">1800</property>
 
 <!-- Models -->
-    <mapping class="rw.rca.ac.airlines.reserve.orm.Flight" />
-    <mapping class="rw.rca.ac.airlines.reserve.orm.Ticket" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Passport" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Passenger" />
-    <mapping class="rw.rca.ac.airlines.reserve.orm.Category" />
-    <mapping class="rw.rca.ac.airlines.reserve.orm.Seat" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Pilot" />
+    <mapping class="rw.rca.ac.airlines.reserve.orm.Category" />
+    <mapping class="rw.rca.ac.airlines.reserve.orm.Flight" />
+    <mapping class="rw.rca.ac.airlines.reserve.orm.Seat" />
+    <mapping class="rw.rca.ac.airlines.reserve.orm.Ticket" />
 
 
 </session-factory>

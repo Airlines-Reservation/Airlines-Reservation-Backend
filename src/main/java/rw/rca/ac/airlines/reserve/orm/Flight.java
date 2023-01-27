@@ -9,17 +9,20 @@ import java.util.*;
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false)
     private int id;
+//    @Column(name = "id", nullable = false)
 
     private int code;
     private String departure;
     private String destination;
     private Date departureTime;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pilot_id")
-    private Pilot pilot;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "pilot_id")
+//    private Pilot pilot;
 
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Pilot pilot;
     public Pilot getPilot() {
         return pilot;
     }
@@ -27,7 +30,6 @@ public class Flight {
     public void setPilot(Pilot pilot) {
         this.pilot = pilot;
     }
-
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,targetEntity = Passenger.class)
     @JoinTable(name="flight_passenger",joinColumns = { @JoinColumn(name = "flight_id")},inverseJoinColumns ={@JoinColumn(name = "passenger_id")} )
     private List<Passenger> passengers;
@@ -41,15 +43,15 @@ public class Flight {
     }
 
     private boolean isCanceled;
-    private int limit;
+    private int limitValue;
     private double price;
-    public Flight(int code, String departure, String destination, Date departureTime, boolean isCanceled, int limit, double price) {
+    public Flight(int code, String departure, String destination, Date departureTime, boolean isCanceled, int limitValue, double price) {
         this.code = code;
         this.departure = departure;
         this.destination = destination;
         this.departureTime = departureTime;
         this.isCanceled = isCanceled;
-        this.limit = limit;
+        this.limitValue = limitValue;
         this.price = price;
     }
     public int getId() {
@@ -89,10 +91,10 @@ public class Flight {
         this.isCanceled = isCanceled;
     }
     public int getLimit() {
-        return limit;
+        return limitValue;
     }
     public void setLimit(int limit) {
-        this.limit = limit;
+        this.limitValue = limit;
     }
     public double getPrice() {
         return price;

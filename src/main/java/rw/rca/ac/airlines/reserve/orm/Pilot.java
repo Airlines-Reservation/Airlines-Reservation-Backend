@@ -1,6 +1,7 @@
 package rw.rca.ac.airlines.reserve.orm;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -9,6 +10,22 @@ import java.util.Date;
 public class Pilot extends Person {
     private int pilotCode;
 
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    //    @OneToOne(mappedBy = "flight")
+//    private Flight flight;
+    @OneToOne(mappedBy = "pilot")
+    private Flight flight;
+
+    public void setPilotCode(int pilotCode) {
+        this.pilotCode = pilotCode;
+    }
     public int getPilotCode() {
         return pilotCode;
     }
@@ -18,7 +35,4 @@ public class Pilot extends Person {
         this.pilotCode = pilotCode;
     }
 
-    public void setPilotCode(int pilotCode) {
-        this.pilotCode = pilotCode;
-    }
 }

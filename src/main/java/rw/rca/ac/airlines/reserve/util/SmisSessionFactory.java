@@ -32,7 +32,7 @@ public class SmisSessionFactory {
      *
      * @return sessionFactory
      */
-    private static SessionFactory getInstance() throws HibernateException{
+    private static SessionFactory getInstance() throws HibernateException {
         if (sessionFactory == null) {
             configuration = new Configuration();
             serviceRegistryBuilder = new StandardServiceRegistryBuilder();

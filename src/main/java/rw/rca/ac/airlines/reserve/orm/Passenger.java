@@ -12,6 +12,7 @@ public class Passenger extends Person {
             @JoinColumn(name = "passenger_id") })
     private List<Passport> passportIds;
 
+
     public List<Passport> getPassportIds() {
         return passportIds;
     }
@@ -20,7 +21,7 @@ public class Passenger extends Person {
         this.passportIds = passportIds;
     }
 
-    public Passenger(String firstName, String lastName, String nationality, Date dob, int passportId) {
+    public Passenger(String firstName, String lastName, String nationality, Date dob) {
         super(firstName, lastName, nationality, dob);
     }
 }

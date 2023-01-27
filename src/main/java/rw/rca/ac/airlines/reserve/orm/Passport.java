@@ -8,14 +8,21 @@ import java.util.*;
 public class Passport {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private int id;
-    @OneToOne
-    @JoinColumn(name = "passenger_id")
-    private Passenger owner;
+
+    //    @Column(name = "id", nullable = false)
     private ArrayList<String> accessCountries;
     private String nationality;
-    private boolean isValid;
+
+    public boolean isValidFlight() {
+        return isValidFlight;
+    }
+
+    public void setValidFlight(boolean validFlight) {
+        isValidFlight = validFlight;
+    }
+
+    private boolean isValidFlight;
     private Date expirationDate;
     private Date issueDate;
 
@@ -27,9 +34,9 @@ public class Passport {
         this.id = id;
     }
 
-    public Passport(boolean isValid, Date expirationDate, Date issueDate,
+    public Passport(boolean isValidFlight, Date expirationDate, Date issueDate,
             ArrayList<String> accessCountries, String nationality) {
-        this.isValid = isValid;
+        this.isValidFlight = isValidFlight;
         this.expirationDate = expirationDate;
         this.issueDate = issueDate;
         // this.owner = owner;
@@ -38,12 +45,9 @@ public class Passport {
     }
 
     public boolean isValid() {
-        return isValid;
+        return isValidFlight;
     }
 
-    public void setValid(boolean isValid) {
-        this.isValid = isValid;
-    }
 
     public Date getExpirationDate() {
         return expirationDate;
@@ -59,14 +63,6 @@ public class Passport {
 
     public void setIssueDate(Date issueDate) {
         this.issueDate = issueDate;
-    }
-
-    public Passenger getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Passenger owner) {
-        this.owner = owner;
     }
 
     public ArrayList<String> getAccessCountries() {

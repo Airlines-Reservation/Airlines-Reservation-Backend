@@ -3,7 +3,7 @@ package rw.rca.ac.airlines.reserve.orm;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category")
+@Table(name = "categori")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

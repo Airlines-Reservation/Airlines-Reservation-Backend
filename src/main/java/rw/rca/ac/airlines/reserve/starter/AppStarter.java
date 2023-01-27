@@ -20,7 +20,7 @@ public class AppStarter {
         Flight flight = new Flight(123, "Kigali", "Angola", new Date(12, 02, 2022), false, 200, 29149.50);
         Pilot pilot = new Pilot("Iris", "Ngabo", "Rwandan", new Date(12, 04, 2008), 2120);
         Seat seat = new Seat(1239923);
-        Category category = new Category("Business Class", 8023.30, "Premium customer care");
+        Category catgy = new Category("Business", 8023.30, "Premium customer care");
         Passenger passenger = new Passenger("Manzi", "Cedrick", "Rwandan", new Date(12, 02, 2000));
         Ticket ticket = new Ticket(123123, new Date(12, 8, 2000), new Date(12, 3, 2021));
         List<Passport> p = new ArrayList<Passport>();
@@ -29,18 +29,10 @@ public class AppStarter {
         flight.setPilot(pilot);
         pilot.setFlight(flight);
         flight.setPassengers(passengersArr);
-        seat.setCategory(category);
+        seat.setCategory(catgy);
         ticket.setOwner(passenger);
         ticket.setFlightId(flight);
         ticket.setSeat(seat);
-
-//        flight.setPilot(pilot);
-        // flight.setPassengers(List<Passenger>);
-        // seat.setCategory(Category);
-        // passenger.setPassportIds(Passport);
-        // ticket.setFlightId(Flight);
-        // ticket.setSeat(Seat);
-
         System.out.println("Loading the configurations");
 
         try {
@@ -55,9 +47,9 @@ public class AppStarter {
             session.saveOrUpdate(passport);
             session.saveOrUpdate(passenger);
             session.saveOrUpdate(pilot);
-            session.saveOrUpdate(flight);
-            session.saveOrUpdate(category);
+            session.saveOrUpdate(catgy);
             session.saveOrUpdate(seat);
+            session.saveOrUpdate(flight);
             session.saveOrUpdate(ticket);
 
             System.out.println("Committing the transactions..............");

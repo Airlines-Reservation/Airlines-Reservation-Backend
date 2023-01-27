@@ -35,8 +35,8 @@
     <mapping class="rw.rca.ac.airlines.reserve.orm.Passport" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Passenger" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Pilot" />
-    <mapping class="rw.rca.ac.airlines.reserve.orm.Flight" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Category" />
+    <mapping class="rw.rca.ac.airlines.reserve.orm.Flight" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Seat" />
     <mapping class="rw.rca.ac.airlines.reserve.orm.Ticket" />
 

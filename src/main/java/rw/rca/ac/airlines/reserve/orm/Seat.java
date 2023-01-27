@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false)
+    @Column(name = "id", nullable = false)
     private int id;
     private int code;
 
@@ -22,20 +22,25 @@ public class Seat {
     public void setCategory(Category category) {
         this.category = category;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public Seat(int code) {
         this.code = code;
     }
+
     public int getCode() {
         return code;
     }
+
     public void setCode(int code) {
         this.code = code;
     }
-    
+
 }

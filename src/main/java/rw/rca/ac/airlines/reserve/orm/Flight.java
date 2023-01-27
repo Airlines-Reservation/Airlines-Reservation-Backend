@@ -1,30 +1,57 @@
 package rw.rca.ac.airlines.reserve.orm;
 
-import java.util.*;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import javax.persistence.*;
+import java.util.*;
+@Entity
+@Table(name = "flight")
 public class Flight {
-    public Flight(int code, String departure, String destination, Date departureTime, Pilot pilot,
-            ArrayList<Passenger> passengers, boolean isCanceled, int limit, double price) {
-        this.code = code;
-        this.departure = departure;
-        this.destination = destination;
-        this.departureTime = departureTime;
-        this.pilot = pilot;
-        this.passengers = passengers;
-        this.isCanceled = isCanceled;
-        this.limit = limit;
-        this.price = price;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private int id;
+
     private int code;
     private String departure;
     private String destination;
     private Date departureTime;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pilot_id")
     private Pilot pilot;
-    private ArrayList<Passenger> passengers;
+
+    public Pilot getPilot() {
+        return pilot;
+    }
+
+    public void setPilot(Pilot pilot) {
+        this.pilot = pilot;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,targetEntity = Passenger.class)
+    @JoinTable(name="flight_passenger",joinColumns = { @JoinColumn(name = "flight_id")},inverseJoinColumns ={@JoinColumn(name = "passenger_id")} )
+    private List<Passenger> passengers;
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
     private boolean isCanceled;
     private int limit;
     private double price;
+    public Flight(int code, String departure, String destination, Date departureTime, boolean isCanceled, int limit, double price) {
+        this.code = code;
+        this.departure = departure;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.isCanceled = isCanceled;
+        this.limit = limit;
+        this.price = price;
+    }
     public int getId() {
         return id;
     }
@@ -54,18 +81,6 @@ public class Flight {
     }
     public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
-    }
-    public Pilot getPilot() {
-        return pilot;
-    }
-    public void setPilot(Pilot pilot) {
-        this.pilot = pilot;
-    }
-    public ArrayList<Passenger> getPassengers() {
-        return passengers;
-    }
-    public void setPassengers(ArrayList<Passenger> passengers) {
-        this.passengers = passengers;
     }
     public boolean isCanceled() {
         return isCanceled;

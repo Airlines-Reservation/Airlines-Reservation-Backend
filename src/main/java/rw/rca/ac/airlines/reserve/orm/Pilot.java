@@ -1,7 +1,11 @@
 package rw.rca.ac.airlines.reserve.orm;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Entity
+@Table(name = "pilot")
 public class Pilot extends Person {
     private int pilotCode;
 

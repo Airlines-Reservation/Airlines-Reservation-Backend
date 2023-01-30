@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DatabaseSync
 {
-    public static void main(String[] args) {
+    public static void manualSave() {
         ArrayList<String> accessableCountries = new ArrayList<String>();
         accessableCountries.add("Kigali");
         accessableCountries.add("Bujumbura");

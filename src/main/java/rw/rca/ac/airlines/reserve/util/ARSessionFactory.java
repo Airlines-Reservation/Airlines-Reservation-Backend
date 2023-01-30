@@ -16,7 +16,7 @@ import org.hibernate.service.ServiceRegistry;
  * @author Aphrodice Rwagaju
  *
  */
-public class SmisSessionFactory {
+public class ARSessionFactory {
 
     private static SessionFactory sessionFactory;
     private static StandardServiceRegistryBuilder serviceRegistryBuilder;
@@ -24,7 +24,7 @@ public class SmisSessionFactory {
     private static Configuration configuration;
     private static ServiceRegistry serviceRegistry;
 
-    private SmisSessionFactory() {
+    private ARSessionFactory() {
     }
 
     /**

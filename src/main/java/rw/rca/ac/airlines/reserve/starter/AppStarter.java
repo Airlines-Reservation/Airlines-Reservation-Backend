@@ -1,20 +1,23 @@
 package rw.rca.ac.airlines.reserve.starter;
 
+import rw.rca.ac.airlines.reserve.controllers.FlightController;
+import rw.rca.ac.airlines.reserve.dao.DAO;
 import rw.rca.ac.airlines.reserve.dbsync.DatabaseSync;
 
 import java.util.Scanner;
 
 public class AppStarter
 {
-    public static int serviceChoice (int n) {
+    public static int serviceChoice(int n) {
         int serviceNo = 0;
         switch (n)
         {
             case 1: n=1;
                 serviceNo = 1;
                 System.out.println("Loading Signin page .......");
-                DatabaseSync.manualSave();
-                System.out.println("DONE SAVING MANUALLY");
+                FlightController fc = new FlightController();
+                fc.createFlight();
+                fc.getFlight();
             case 2: n=2;
                 serviceNo = 2;
                 System.out.println("Feature coming soon........");

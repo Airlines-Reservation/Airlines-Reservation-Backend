@@ -1,59 +1,53 @@
 package rw.rca.ac.airlines.reserve.dao;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import org.hibernate.*;
 
 import rw.rca.ac.airlines.reserve.util.ARSessionFactory;
 
-public class DAO {
-    protected DAO() {
+import java.util.List;
+
+public class DAO<T> {
+    private SessionFactory sessionFactory = ARSessionFactory.getSession().getSessionFactory();
+
+    public void GenericDAO() {
     }
 
-    /**
-     * @return session
-     */
-    public static Session getSession() {
-        return ARSessionFactory.getSession();
+    public void create(T t){
+        Session session = ARSessionFactory.getSession();
+        Transaction transaction = session.beginTransaction();
+        session.saveOrUpdate(t);
+        transaction.commit();
     }
 
-    /**
-     * begins transaction
-     */
-    protected void begin() {
-        getSession().beginTransaction();
+    public T get(int id) {
+        Session session = sessionFactory.openSession();
+        T t = (T) session.get(DAO.class , id);
+        session.close();
+        return t;
     }
 
-    /**
-     * saves changes to the database
-     */
-    protected void commit() {
-        getSession().getTransaction().commit();
+    public List<T> getAll() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from");
+        List<T> list = query.list();
+        session.close();
+        return list;
+    }
+    public void update(T t) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(t);
+        transaction.commit();
+        session.close();
     }
 
-    /**
-     * rolls back for failed transaction closes databases connection
-     *
-     * @throws HibernateException
-     */
-    protected void rollback() {
-        try {
-            getSession().getTransaction().rollback();
-        } catch (HibernateException e) {
-            System.out.println("Cannot rollback: " + e.toString());
-        } finally {
-            close();
-        }
-    }
-
-    protected void close() {
-        try {
-            getSession().close();
-        } catch (HibernateException e) {
-            System.out.println("Cannot close: " + e.toString());
-        }
-    }
-
-    public void clear() {
-        getSession().clear();
+    public void delete(int id) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        T t = (T) session.get(DAO.class,id);
+        session.delete(t);
+        transaction.commit();
+        session.close();
     }
 }

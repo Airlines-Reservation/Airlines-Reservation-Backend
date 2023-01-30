@@ -55,7 +55,7 @@ public class DatabaseSync
 
             System.out.println("Committing the transactions..............");
             transaction.commit();
-            System.out.println("Closing the files");
+            System.out.println("Closing the file");
             factory.close();
             session.close();
         } catch (Exception e) {

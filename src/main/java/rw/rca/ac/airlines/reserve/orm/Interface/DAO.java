@@ -1,4 +1,4 @@
-package Interface;
+package rw.rca.ac.airlines.reserve.orm.Interface;
 
 import java.sql.SQLException;
 
@@ -11,7 +11,7 @@ public interface DAO<T> {
 
     T get(int id) throws SQLException;
 
-    Lists<T> getAll() throws SQLException;
+    List<T> getAll() throws SQLException;
 
     int save(T t) throws SQLException;
 

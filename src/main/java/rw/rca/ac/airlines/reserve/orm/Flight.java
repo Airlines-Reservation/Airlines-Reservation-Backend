@@ -3,8 +3,8 @@ package rw.rca.ac.airlines.reserve.orm;
 import java.sql.SQLException;
 import java.util.*;
 
-import Interface.DAO;
 import rw.rca.ac.airlines.reserve.orm.DAOImplentation.T;
+import rw.rca.ac.airlines.reserve.orm.Interface.DAO;
 
 public class Flight implements DAO<T> {
     public Flight(int code, String departure, String destination, Date departureTime, Pilot pilot,
@@ -127,31 +127,26 @@ public class Flight implements DAO<T> {
 
     @Override
     public int save(T t) throws SQLException {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public int insert(T t) throws SQLException {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public int update(T t) throws SQLException {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public int delete(T t) {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public T get(int id) throws SQLException {
-        // TODO Auto-generated method stub
         return null;
     }
 

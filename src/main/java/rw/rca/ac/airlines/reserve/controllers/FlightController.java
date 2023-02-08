@@ -10,9 +10,9 @@ import java.util.List;
 
 public class FlightController
 {
-    DAO<Flight> flightDAO = new DAO<>();
-    DAO<Pilot> pilotDAO = new DAO<>();
-    DAO<Passenger> passengerDAO = new DAO<>();
+    DAO<Flight> flightDAO = new DAO<Flight>(Flight.class);
+    DAO<Pilot> pilotDAO = new DAO<Pilot>(Pilot.class);
+    DAO<Passenger> passengerDAO = new DAO<Passenger>(Passenger.class);
     public void createFlight() {
         Passenger passenger = new Passenger("Manzi", "Cedrick", "Rwandan", new Date(12, 02, 2000));
         Pilot pilot = new Pilot("Iris", "Ngabo", "Rwandan", new Date(12, 04, 2008), 2120);

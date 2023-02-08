@@ -30,6 +30,9 @@ public class Pilot extends Person {
         return pilotCode;
     }
 
+    public Pilot() {
+    }
+
     public Pilot(String firstName, String lastName, String nationality, Date dob, int pilotCode) {
         super(firstName, lastName, nationality, dob);
         this.pilotCode = pilotCode;

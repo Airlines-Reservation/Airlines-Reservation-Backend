@@ -45,6 +45,9 @@ public class Flight {
     private boolean isCanceled;
     private int limitValue;
     private double price;
+
+    public Flight() {}
+
     public Flight(int code, String departure, String destination, Date departureTime, boolean isCanceled, int limitValue, double price) {
         this.code = code;
         this.departure = departure;

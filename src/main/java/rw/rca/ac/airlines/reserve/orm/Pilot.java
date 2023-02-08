@@ -17,9 +17,6 @@ public class Pilot extends Person {
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
-
-    //    @OneToOne(mappedBy = "flight")
-//    private Flight flight;
     @OneToOne(mappedBy = "pilot")
     private Flight flight;
 

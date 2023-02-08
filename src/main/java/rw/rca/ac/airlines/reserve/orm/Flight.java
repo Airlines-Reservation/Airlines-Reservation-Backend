@@ -1,7 +1,4 @@
 package rw.rca.ac.airlines.reserve.orm;
-
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-
 import javax.persistence.*;
 import java.util.*;
 @Entity
@@ -10,26 +7,24 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-//    @Column(name = "id", nullable = false)
 
     private int code;
     private String departure;
     private String destination;
     private Date departureTime;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "pilot_id")
-//    private Pilot pilot;
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private Pilot pilot;
-    public Pilot getPilot() {
+    private Employee pilot;
+
+    public Employee getPilot() {
         return pilot;
     }
 
-    public void setPilot(Pilot pilot) {
+    public void setPilot(Employee pilot) {
         this.pilot = pilot;
     }
+
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,targetEntity = Passenger.class)
     @JoinTable(name="flight_passenger",joinColumns = { @JoinColumn(name = "flight_id")},inverseJoinColumns ={@JoinColumn(name = "passenger_id")} )
     private List<Passenger> passengers;
@@ -45,8 +40,6 @@ public class Flight {
     private boolean isCanceled;
     private int limitValue;
     private double price;
-
-    public Flight() {}
 
     public Flight(int code, String departure, String destination, Date departureTime, boolean isCanceled, int limitValue, double price) {
         this.code = code;
@@ -99,13 +92,14 @@ public class Flight {
     public void setLimit(int limit) {
         this.limitValue = limit;
     }
+
+    public Flight() {
+    }
+
     public double getPrice() {
         return price;
     }
     public void setPrice(double price) {
         this.price = price;
     }
-
-    
-
 }

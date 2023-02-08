@@ -1,8 +1,6 @@
 package rw.rca.ac.airlines.reserve.starter;
 
 import rw.rca.ac.airlines.reserve.controllers.FlightController;
-import rw.rca.ac.airlines.reserve.dao.DAO;
-import rw.rca.ac.airlines.reserve.dbsync.DatabaseSync;
 import rw.rca.ac.airlines.reserve.orm.Flight;
 
 import java.util.List;
@@ -18,10 +16,10 @@ public class AppStarter
                 serviceNo = 1;
                 System.out.println("Loading Signin page .......");
                 FlightController fc = new FlightController();
-//                fc.createFlight();
-                List<Flight> allFlights = fc.getFlight();
+                fc.createFlight();
+                List<Flight> allFlights = fc.getAllFlights();
                 for(Flight fl : allFlights){
-                    System.out.println("Flight -->"+fl.getCode());
+                    System.out.println("Flight -->"+fl);
                 }
             case 2: n=2;
                 serviceNo = 2;
@@ -50,8 +48,8 @@ public class AppStarter
         + "\\__|  \\__| \\_______|\\_______/  \\_______|\\__|         \\_/     \\_______|\n"
         );
         System.out.println("Welcome to the Airlines Reservation Application");
-        System.out.println("1. Sign up");
-        System.out.println("2. Sign in ");
+        System.out.println("1. Sign up:");
+        System.out.println("2. Sign in:");
         System.out.println("Enter the corresponding numeral");
         System.out.println("============================================================================= Provide =============================================");
         Scanner scan = new Scanner(System.in);

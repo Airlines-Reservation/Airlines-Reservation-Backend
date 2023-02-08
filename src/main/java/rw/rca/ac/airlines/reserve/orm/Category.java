@@ -9,6 +9,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
+
+    public Category() {
+    }
+
     private double price;
     private String services;
 

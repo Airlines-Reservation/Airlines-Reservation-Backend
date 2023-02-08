@@ -49,6 +49,9 @@ public abstract class Person implements Serializable {
         return nationality;
     }
 
+    public Person() {
+    }
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }

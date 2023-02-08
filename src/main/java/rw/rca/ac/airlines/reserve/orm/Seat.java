@@ -8,6 +8,10 @@ public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    public Seat() {
+    }
+
     //    @Column(name = "id", nullable = false)
     private int code;
 

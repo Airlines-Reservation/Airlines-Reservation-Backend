@@ -6,6 +6,9 @@ import java.util.*;
 @Entity
 @Table(name = "passport")
 public class Passport {
+    public Passport() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

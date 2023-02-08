@@ -13,6 +13,9 @@ public class Ticket {
 
     private int code;
 
+    public Ticket() {
+    }
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "passenger_id")
     private Passenger owner;

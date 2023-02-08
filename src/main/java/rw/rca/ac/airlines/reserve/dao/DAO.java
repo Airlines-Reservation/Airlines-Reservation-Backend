@@ -7,10 +7,13 @@ import rw.rca.ac.airlines.reserve.util.ARSessionFactory;
 import java.util.List;
 
 public class DAO<T> {
+    private Class<T> type;
     private SessionFactory sessionFactory = ARSessionFactory.getSession().getSessionFactory();
 
-    public void GenericDAO() {
+    public DAO(Class<T> type) {
+        this.type = type;
     }
+
 
     public void create(T t){
         Session session = ARSessionFactory.getSession();
@@ -29,7 +32,8 @@ public class DAO<T> {
     public List<T> getAll() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createQuery("from");
+
+        Query query = session.createQuery("from " + type.getSimpleName());
         List<T> list = query.list();
         session.close();
         return list;

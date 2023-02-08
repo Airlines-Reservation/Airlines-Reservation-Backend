@@ -1,10 +1,11 @@
 package rw.rca.ac.airlines.reserve.controllers;
 
 public class CLI {
-
     public void begin() {
         System.out.println("Enter ");
     }
+
+
 }
 
 

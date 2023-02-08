@@ -8,5 +8,5 @@ public interface FlightDAO {
     public void saveFlight(Flight flight);
     public void updateFlight();
     public void deleteFlight(Flight flight);
-    public List<Flight> findFlight(String name);
+    public List<Flight> getAllFlights();
 }

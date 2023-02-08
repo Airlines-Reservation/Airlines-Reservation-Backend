@@ -17,9 +17,6 @@ public class Pilot extends Person {
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
-
-    //    @OneToOne(mappedBy = "flight")
-//    private Flight flight;
     @OneToOne(mappedBy = "pilot")
     private Flight flight;
 
@@ -28,6 +25,9 @@ public class Pilot extends Person {
     }
     public int getPilotCode() {
         return pilotCode;
+    }
+
+    public Pilot() {
     }
 
     public Pilot(String firstName, String lastName, String nationality, Date dob, int pilotCode) {
